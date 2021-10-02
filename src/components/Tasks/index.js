@@ -36,19 +36,6 @@ const Tasks = () => {
     })();
   }, []);
 
-  const handleClick = (item) => {
-    setTasks((prev) =>
-      prev.map((task) =>
-        task.id === item.id
-          ? {
-              ...task,
-              done: !task.done,
-            }
-          : task
-      )
-    );
-  };
-
   const getFilteredTasks = () => {
     if (!filter) return tasks;
     if (filter === "active") {
@@ -116,7 +103,7 @@ const Tasks = () => {
               <Spinner />
             ) : tasks.length ? (
               getFilteredTasks().map((item) => (
-                <TaskItem key={item.id} item={item} handleClick={handleClick} />
+                <TaskItem key={item.id} item={item} setTasks={setTasks} />
               ))
             ) : (
               <p style={{ margin: "60px auto", color: "#4e4e4e" }}>

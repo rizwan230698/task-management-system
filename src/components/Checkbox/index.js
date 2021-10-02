@@ -1,9 +1,14 @@
 import "./style.css";
 
-const Checkbox = ({ value }) => (
+const Checkbox = ({ value, onChange }) => (
   <div className="round">
-    <input type="checkbox" id="checkbox" checked={value} />
-    <label htmlFor="checkbox"></label>
+    <input type="checkbox" checked={value} readOnly />
+    <label
+      onClick={(e) => {
+        e.stopPropagation();
+        onChange();
+      }}
+    ></label>
   </div>
 );
 

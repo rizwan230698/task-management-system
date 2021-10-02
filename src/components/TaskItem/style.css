@@ -8,3 +8,7 @@
   border-bottom: 1px solid #f1f1f1;
   color: #4e4e4e;
 }
+
+.task-item:hover {
+  background-color: #f0eeee;
+}
