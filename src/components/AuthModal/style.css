@@ -17,7 +17,7 @@
 
 .modal-heading {
   font-size: 48px;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .google-btn {
@@ -30,7 +30,7 @@
   font-size: 15px;
   color: white;
   text-transform: uppercase;
-  font-weight: bolder;
+  font-weight: 700;
   border: none;
   display: flex;
   justify-content: center;

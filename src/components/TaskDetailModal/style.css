@@ -56,4 +56,5 @@
 .task-details input::-webkit-input-placeholder {
   color: #eaeaea;
   font-style: italic;
+  font-weight: 300;
 }
