@@ -1,7 +1,5 @@
-import Tasks from "./components/Tasks/";
-
 function App() {
-  return <Tasks />;
+  return <div></div>;
 }
 
 export default App;
