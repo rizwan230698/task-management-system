@@ -27,3 +27,9 @@ h1 {
   margin-bottom: 20px;
   font-weight: 100;
 }
+.mr-32 {
+  margin-right: 32px !important;
+}
+.mb-0 {
+  margin-bottom: 0px !important;
+}

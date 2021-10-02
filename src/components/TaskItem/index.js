@@ -5,7 +5,7 @@ import { firestore } from "../../firebase";
 import Spinner from "../Spinner";
 import "./style.css";
 
-const TaskItem = ({ item, setTasks }) => {
+const TaskItem = ({ item, setTasks, handleClick }) => {
   const [deleting, setDeleting] = useState(false);
   const [editing, setEditing] = useState(false);
 
@@ -46,7 +46,7 @@ const TaskItem = ({ item, setTasks }) => {
   };
 
   return (
-    <div className="task-item">
+    <div className="task-item" onClick={handleClick}>
       <div style={{ width: 30, marginRight: 10 }}>
         {editing ? (
           <Spinner className="sm" />

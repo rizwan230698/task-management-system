@@ -5,6 +5,7 @@ import { AuthContext } from "../../context/UserProvider";
 import TaskItem from "../TaskItem";
 import { firestore } from "../../firebase";
 import Spinner from "../Spinner";
+import TaskDetailsModal from "../TaskDetailModal";
 import "./style.css";
 
 const Tasks = () => {
@@ -13,6 +14,7 @@ const Tasks = () => {
   const [loading, setLoading] = useState(true);
   const [input, setInput] = useState("");
   const [creatingTask, setCreatingTask] = useState(false);
+  const [selectedTask, setSelectedTask] = useState(null);
 
   const { currentUser, removeUser } = useContext(AuthContext);
   const inputRef = useRef();
@@ -73,91 +75,105 @@ const Tasks = () => {
   }, [tasks]);
 
   return (
-    <div className="container">
-      <h1>todos</h1>
-      <div className="tasks-container">
-        <div className="input-container">
-          <DownArrow />
-          <input
-            ref={inputRef}
-            placeholder="What needs to be done?"
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            onKeyDown={handleSubmit}
-          />
+    <>
+      <div className="container">
+        <h1>todos</h1>
+        <div className="tasks-container">
+          <div className="input-container">
+            <DownArrow />
+            <input
+              ref={inputRef}
+              placeholder="What needs to be done?"
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              onKeyDown={handleSubmit}
+            />
 
-          {creatingTask && <Spinner className="sm" />}
-        </div>
-
-        <div style={{ boxShadow: "0px 3px 10px rgba(0, 0, 0, 0.1)" }}>
-          <div
-            style={{
-              width: "100%",
-              display: "flex",
-              flexDirection: "column",
-              maxHeight: "400px",
-              overflowY: "auto",
-            }}
-          >
-            {loading ? (
-              <Spinner />
-            ) : tasks.length ? (
-              getFilteredTasks().map((item) => (
-                <TaskItem key={item.id} item={item} setTasks={setTasks} />
-              ))
-            ) : (
-              <p style={{ margin: "60px auto", color: "#4e4e4e" }}>
-                No tasks pending!
-              </p>
-            )}
+            {creatingTask && <Spinner className="sm" />}
           </div>
 
-          {!!tasks.length && (
+          <div style={{ boxShadow: "0px 3px 10px rgba(0, 0, 0, 0.1)" }}>
             <div
               style={{
+                width: "100%",
                 display: "flex",
-                padding: "10px 20px",
-                position: "relative",
+                flexDirection: "column",
+                maxHeight: "400px",
+                overflowY: "auto",
               }}
             >
-              <p className="info">
-                {tasksLeft} {tasksLeft > 1 ? "items" : "item"} left
-              </p>
-              <div
-                style={{ display: "flex", flex: 1, justifyContent: "center" }}
-              >
-                <button
-                  onClick={() => setFilter("")}
-                  className={`${!filter && "focus"}`}
-                >
-                  All
-                </button>
-                <button
-                  onClick={() => setFilter("active")}
-                  className={`${filter === "active" && "focus"}`}
-                >
-                  Active
-                </button>
-                <button
-                  onClick={() => setFilter("completed")}
-                  className={`${filter === "completed" && "focus"}`}
-                >
-                  Completed
-                </button>
-              </div>
+              {loading ? (
+                <Spinner />
+              ) : tasks.length ? (
+                getFilteredTasks().map((item) => (
+                  <TaskItem
+                    key={item.id}
+                    item={item}
+                    setTasks={setTasks}
+                    handleClick={() => setSelectedTask(item.id)}
+                  />
+                ))
+              ) : (
+                <p style={{ margin: "60px auto", color: "#4e4e4e" }}>
+                  No tasks pending!
+                </p>
+              )}
             </div>
-          )}
-        </div>
-      </div>
 
-      <button
-        style={{ position: "absolute", right: 25, top: 25 }}
-        className="google-btn"
-        onClick={removeUser}
-      >
-        Log out
-      </button>
-    </div>
+            {!!tasks.length && (
+              <div
+                style={{
+                  display: "flex",
+                  padding: "10px 20px",
+                  position: "relative",
+                }}
+              >
+                <p className="info">
+                  {tasksLeft} {tasksLeft > 1 ? "items" : "item"} left
+                </p>
+                <div
+                  style={{ display: "flex", flex: 1, justifyContent: "center" }}
+                >
+                  <button
+                    onClick={() => setFilter("")}
+                    className={`${!filter && "focus"}`}
+                  >
+                    All
+                  </button>
+                  <button
+                    onClick={() => setFilter("active")}
+                    className={`${filter === "active" && "focus"}`}
+                  >
+                    Active
+                  </button>
+                  <button
+                    onClick={() => setFilter("completed")}
+                    className={`${filter === "completed" && "focus"}`}
+                  >
+                    Completed
+                  </button>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+
+        <button
+          style={{ position: "absolute", right: 25, top: 25 }}
+          className="google-btn"
+          onClick={removeUser}
+        >
+          Log out
+        </button>
+      </div>
+      {!!selectedTask && (
+        <TaskDetailsModal
+          item={tasks.find((item) => item.id === selectedTask)}
+          handleClose={() => setSelectedTask(null)}
+          setTasks={setTasks}
+        />
+      )}
+    </>
   );
 };
 

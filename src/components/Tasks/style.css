@@ -36,7 +36,7 @@
   outline: none;
 }
 
-.input-container ::-webkit-input-placeholder {
+.input-container input::-webkit-input-placeholder {
   color: #eaeaea;
   font-style: italic;
 }

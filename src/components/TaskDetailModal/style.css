@@ -1,0 +1,59 @@
+.modal-wrapper {
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.6);
+  height: 100vh;
+  width: 100vw;
+  z-index: 100;
+}
+
+.modal {
+  background-color: #ffffff;
+  padding: 50px 100px;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 105;
+  cursor: auto;
+}
+
+.modal .close-btn {
+  cursor: pointer;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+
+.task-details {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.task-details h1 {
+  font-size: 40px;
+  font-weight: 300;
+}
+
+.task-details input {
+  width: 100%;
+  color: #ecd8d8;
+  background-color: transparent;
+  border: none;
+  font-size: 40px;
+}
+
+.task-details input:focus {
+  border: none;
+  outline: none;
+}
+
+.task-details input::-webkit-input-placeholder {
+  color: #eaeaea;
+  font-style: italic;
+}
