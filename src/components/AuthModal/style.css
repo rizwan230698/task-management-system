@@ -1,0 +1,49 @@
+.modal-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.6);
+  height: 100vh;
+}
+
+.modal {
+  background-color: #ffffff;
+  padding: 50px 100px;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.modal-heading {
+  font-size: 48px;
+  font-weight: 300;
+}
+
+.google-btn {
+  min-width: 165px;
+  width: auto;
+  height: 40px;
+  letter-spacing: 0.5px;
+  line-height: 40px;
+  padding: 0 30px;
+  font-size: 15px;
+  color: white;
+  text-transform: uppercase;
+  font-weight: bolder;
+  border: none;
+  display: flex;
+  justify-content: center;
+  background-color: #4285f4;
+  color: white;
+  cursor: pointer;
+}
+
+.google-btn:hover {
+  background-color: #3571e8;
+  border: none;
+}
+.google-btn:focus {
+  border: none;
+  outline: none;
+}

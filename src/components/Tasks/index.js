@@ -1,5 +1,6 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useContext } from "react";
 import { ReactComponent as DownArrow } from "../../arrow.svg";
+import { AuthContext } from "../../context/UserProvider";
 import TaskItem from "../TaskItem";
 import "./style.css";
 
@@ -20,6 +21,8 @@ const Tasks = () => {
   const [tasks, setTasks] = useState(initialState);
   const [filter, setFilter] = useState("");
   const [input, setInput] = useState("");
+
+  const { removeUser } = useContext(AuthContext);
 
   const handleClick = (item) => {
     setTasks((prev) =>
@@ -112,6 +115,14 @@ const Tasks = () => {
           </div>
         </div>
       </div>
+
+      <button
+        style={{ position: "absolute", right: 25, top: 25 }}
+        className="google-btn"
+        onClick={removeUser}
+      >
+        Log out
+      </button>
     </div>
   );
 };
