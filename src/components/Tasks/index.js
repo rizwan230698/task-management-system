@@ -122,18 +122,16 @@ const Tasks = () => {
             </div>
 
             {!!tasks.length && (
-              <div
-                style={{
-                  display: "flex",
-                  padding: "10px 20px",
-                  position: "relative",
-                }}
-              >
+              <div className="info-ctas-container">
                 <p className="info">
                   {tasksLeft} {tasksLeft > 1 ? "items" : "item"} left
                 </p>
                 <div
-                  style={{ display: "flex", flex: 1, justifyContent: "center" }}
+                  style={{
+                    display: "flex",
+                    flex: 1,
+                    justifyContent: "center",
+                  }}
                 >
                   <button
                     onClick={() => setFilter("")}
@@ -159,11 +157,7 @@ const Tasks = () => {
           </div>
         </div>
 
-        <button
-          style={{ position: "absolute", right: 25, top: 25 }}
-          className="google-btn"
-          onClick={removeUser}
-        >
+        <button className="google-btn log-out-btn" onClick={removeUser}>
           Log out
         </button>
       </div>

@@ -1,14 +1,15 @@
-.modal-wrapper {
+.auth-modal-wrapper {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   background-color: rgba(0, 0, 0, 0.6);
   height: 100vh;
+  padding: 120px 24px 24px;
 }
 
-.modal {
+.auth-modal-wrapper .modal {
   background-color: #ffffff;
-  padding: 50px 100px;
+  padding: 30px;
   border-radius: 3px;
   display: flex;
   flex-direction: column;
@@ -46,4 +47,10 @@
 .google-btn:focus {
   border: none;
   outline: none;
+}
+
+@media (min-width: 992px) {
+  .auth-modal-wrapper .modal {
+    padding: 50px 100px;
+  }
 }

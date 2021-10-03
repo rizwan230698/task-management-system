@@ -41,8 +41,8 @@ const TaskDetailsModal = ({ item, handleClose, setTasks }) => {
   };
 
   return (
-    <div className="modal-wrapper">
-      <div className="modal" style={{ padding: "60px 80px" }}>
+    <div className="task-details-modal-wrapper">
+      <div className="modal">
         <CloseIcon
           width="40px"
           height="40px"
@@ -52,9 +52,11 @@ const TaskDetailsModal = ({ item, handleClose, setTasks }) => {
             handleClose();
           }}
         />
-        <div className="task-details" style={{ width: 600, height: "80vh" }}>
+        <div className="task-details">
           {showeditor ? (
-            <div style={{ position: "relative" }}>
+            <div
+              style={{ display: "flex", alignItems: "center", width: "100%" }}
+            >
               <input
                 type="text"
                 value={input}
@@ -62,18 +64,7 @@ const TaskDetailsModal = ({ item, handleClose, setTasks }) => {
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={handleSubmit}
               />
-              {editing && (
-                <div
-                  style={{
-                    position: "absolute",
-                    left: "-45px",
-                    top: "50%",
-                    transform: "translateY(-50%)",
-                  }}
-                >
-                  <Spinner className="sm dark" />
-                </div>
-              )}
+              {editing && <Spinner className="sm dark" />}
             </div>
           ) : (
             <div style={{ display: "flex", alignItems: "center" }}>
@@ -91,7 +82,7 @@ const TaskDetailsModal = ({ item, handleClose, setTasks }) => {
           )}
 
           <div className="deadline-container">
-            <p>Set Deadline:</p>
+            <p>Deadline:</p>
             <DatePicker item={item} setTasks={setTasks} />
           </div>
 

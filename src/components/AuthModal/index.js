@@ -3,7 +3,7 @@ import "./style.css";
 
 const AuthModal = () => {
   return (
-    <div className="modal-wrapper">
+    <div className="auth-modal-wrapper">
       <div className="modal">
         <h1 className="modal-heading">Task Manager</h1>
         <button className="google-btn" onClick={signInWithGoogle}>

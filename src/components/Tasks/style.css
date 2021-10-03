@@ -42,9 +42,13 @@
   font-weight: 400;
 }
 
+.info-ctas-container {
+  display: flex;
+  flex-direction: row;
+  padding: 10px 20px;
+  position: relative;
+}
 p.info {
-  position: absolute;
-  margin-right: 100px;
   padding: 5px 0px;
   font-size: 14px;
   color: #ababab;
@@ -54,7 +58,7 @@ button {
   cursor: pointer;
   font-size: 14px;
   color: #ababab;
-  margin-right: 20px;
+  margin-right: 10px;
   padding: 5px 10px;
   background-color: transparent;
   border: 1px solid transparent;
@@ -63,4 +67,32 @@ button {
 
 button.focus {
   border-color: #ecd8d8;
+}
+
+.log-out-btn {
+  position: absolute;
+  bottom: 25px;
+  right: 25px;
+}
+
+@media (min-width: 992px) {
+  .log-out-btn {
+    top: 25px;
+  }
+
+  .info-ctas-container {
+    display: flex;
+    flex-direction: row;
+    padding: 10px 20px;
+    position: relative;
+  }
+
+  .info-ctas-container button {
+    margin-right: 20px;
+  }
+
+  p.info {
+    position: absolute;
+    margin-right: 100px;
+  }
 }

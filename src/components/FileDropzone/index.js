@@ -63,7 +63,7 @@ const FileDropzone = ({ item }) => {
   };
 
   return (
-    <div style={{ marginTop: 20, width: "100%", position: "relative" }}>
+    <div style={{ marginTop: 30, width: "100%", position: "relative" }}>
       <div style={{ display: "flex" }}>
         <input type="file" onChange={(e) => uploadFile(e.target.files[0])} />
         {uploading && (

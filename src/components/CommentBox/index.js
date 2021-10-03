@@ -74,7 +74,10 @@ const CommentBox = ({ item }) => {
         <Spinner />
       ) : comments.length ? (
         comments.map((comment) => (
-          <p key={comment.id} style={{ padding: "5px" }}>
+          <p
+            key={comment.id}
+            style={{ padding: "10px 5px", borderBottom: "1px solid #EAEAEA" }}
+          >
             {comment.text}
           </p>
         ))
