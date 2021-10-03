@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { ReactComponent as CloseIcon } from "../../close-circle.svg";
 import { ReactComponent as EditIcon } from "../../edit.svg";
 import { firestore } from "../../firebase";
+import CommentBox from "../CommentBox";
 import DatePicker from "../DatePicker";
 import Spinner from "../Spinner";
 
@@ -91,6 +92,8 @@ const TaskDetailsModal = ({ item, handleClose, setTasks }) => {
             <p>Set Deadline:</p>
             <DatePicker item={item} setTasks={setTasks} />
           </div>
+
+          <CommentBox item={item} />
         </div>
       </div>
     </div>
