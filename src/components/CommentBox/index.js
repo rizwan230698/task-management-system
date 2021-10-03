@@ -27,7 +27,7 @@ const CommentBox = ({ item }) => {
           setLoading(false);
         });
     })();
-  }, []);
+  }, [item.id]);
 
   const handleSubmit = async (e) => {
     if (e.key === "Enter" && input.trim() && !creatingComment) {

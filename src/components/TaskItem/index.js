@@ -4,6 +4,7 @@ import { ReactComponent as CrossIcon } from "../../close-circle.svg";
 import { firestore } from "../../firebase";
 import Spinner from "../Spinner";
 import "./style.css";
+import { deleteCommentsAndFiles } from "../../utils";
 
 const TaskItem = ({ item, setTasks, handleClick }) => {
   const [deleting, setDeleting] = useState(false);
@@ -16,6 +17,8 @@ const TaskItem = ({ item, setTasks, handleClick }) => {
       await db.collection("tasks").doc(id).delete();
       setTasks((prev) => prev.filter((item) => item.id !== id));
       setDeleting(false);
+      //delete comments and files as well
+      deleteCommentsAndFiles(id);
     } catch (error) {
       setDeleting(false);
       console.log(error);

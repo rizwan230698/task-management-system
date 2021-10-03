@@ -36,7 +36,7 @@ const Tasks = () => {
           inputRef.current.focus();
         });
     })();
-  }, []);
+  }, [currentUser.email]);
 
   const getFilteredTasks = () => {
     if (!filter) return tasks;
@@ -54,7 +54,6 @@ const Tasks = () => {
       id,
       text: input,
       done: false,
-      images: [],
       email: currentUser.email, //task is related to user via email
       createdAt: new Date(),
     };

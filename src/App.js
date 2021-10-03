@@ -9,13 +9,15 @@ function App() {
 
   useEffect(() => {
     auth.onAuthStateChanged((user) => setUser(user));
-  }, []);
+  }, [setUser]);
 
   return <>{currentUser ? <Tasks /> : <AuthModal />}</>;
 }
 
-export default () => (
+const AppWithAuthProvider = () => (
   <AuthProvider>
     <App />
   </AuthProvider>
 );
+
+export default AppWithAuthProvider;

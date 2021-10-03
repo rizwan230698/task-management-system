@@ -23,7 +23,7 @@ const FileDropzone = ({ item }) => {
           setFiles(files);
         });
     })();
-  }, []);
+  }, [item.id]);
 
   const attachFile = async (data) => {
     const id = uuidv4();
@@ -85,6 +85,7 @@ const FileDropzone = ({ item }) => {
             key={file.id}
             href={file.url}
             target="_blank"
+            rel="noreferrer"
             style={{
               display: "inline-block",
               textDecoration: "none",

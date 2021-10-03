@@ -15,7 +15,7 @@ const DatePicker = ({ item, setTasks }) => {
       await db.collection("tasks").doc(item.id).update({ deadline: value });
       setTasks((prev) =>
         prev.map((task) =>
-          task.id === item.id ? { ...item, deadline: value } : item
+          task.id === item.id ? { ...item, deadline: value } : task
         )
       );
       setUpdating(false);
