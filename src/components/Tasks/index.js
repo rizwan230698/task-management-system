@@ -25,6 +25,7 @@ const Tasks = () => {
       const tasks = [];
       db.collection("tasks")
         .where("email", "==", currentUser.email)
+        .orderBy("createdAt", "desc")
         .get()
         .then((querySnapshot) => {
           querySnapshot.forEach((doc) => {
