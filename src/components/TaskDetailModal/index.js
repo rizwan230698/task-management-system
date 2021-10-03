@@ -4,6 +4,7 @@ import { ReactComponent as EditIcon } from "../../edit.svg";
 import { firestore } from "../../firebase";
 import CommentBox from "../CommentBox";
 import DatePicker from "../DatePicker";
+import FileDropzone from "../FileDropzone";
 import Spinner from "../Spinner";
 
 import "./style.css";
@@ -88,10 +89,13 @@ const TaskDetailsModal = ({ item, handleClose, setTasks }) => {
               />
             </div>
           )}
+
           <div className="deadline-container">
             <p>Set Deadline:</p>
             <DatePicker item={item} setTasks={setTasks} />
           </div>
+
+          <FileDropzone item={item} />
 
           <CommentBox item={item} />
         </div>

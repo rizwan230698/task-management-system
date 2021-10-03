@@ -54,7 +54,7 @@ const CommentBox = ({ item }) => {
   };
 
   return (
-    <div className="comment-box" style={{ width: "100%", marginTop: 120 }}>
+    <div className="comment-box" style={{ width: "100%", marginTop: 30 }}>
       <div style={{ display: "flex", alignItems: "center", marginBottom: 20 }}>
         <input
           type="text"
