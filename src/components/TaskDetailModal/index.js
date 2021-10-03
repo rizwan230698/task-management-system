@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { ReactComponent as CloseIcon } from "../../close-circle.svg";
 import { ReactComponent as EditIcon } from "../../edit.svg";
 import { firestore } from "../../firebase";
+import DatePicker from "../DatePicker";
 import Spinner from "../Spinner";
 
 import "./style.css";
@@ -53,6 +54,7 @@ const TaskDetailsModal = ({ item, handleClose, setTasks }) => {
           {showeditor ? (
             <div style={{ position: "relative" }}>
               <input
+                type="text"
                 value={input}
                 ref={editorRef}
                 onChange={(e) => setInput(e.target.value)}
@@ -85,6 +87,10 @@ const TaskDetailsModal = ({ item, handleClose, setTasks }) => {
               />
             </div>
           )}
+          <div className="deadline-container">
+            <p>Set Deadline:</p>
+            <DatePicker item={item} setTasks={setTasks} />
+          </div>
         </div>
       </div>
     </div>

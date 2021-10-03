@@ -82,6 +82,7 @@ const Tasks = () => {
           <div className="input-container">
             <DownArrow />
             <input
+              type="text"
               ref={inputRef}
               placeholder="What needs to be done?"
               value={input}
