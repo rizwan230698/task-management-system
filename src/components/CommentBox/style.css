@@ -1,0 +1,17 @@
+.comment-box {
+  position: relative;
+}
+
+.comment-box input[type="text"] {
+  font-size: 16px !important;
+  color: #4e4e4e !important;
+  border: 1px solid #eaeaea !important;
+  padding: 10px;
+  border-radius: 3px;
+}
+
+@media (min-width: 992px) {
+  .comment-box input[type="text"] {
+    font-size: 18px !important;
+  }
+}

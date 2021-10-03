@@ -1,0 +1,98 @@
+.tasks-container {
+  background-color: #ffffff;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.input-container {
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  padding: 0px 20px;
+}
+
+.input-container svg {
+  transform: rotate(90deg);
+  margin-right: 20px;
+  height: 18px;
+  width: 18px;
+}
+
+.input-container input {
+  width: 100%;
+  padding: 20px 0px;
+  color: #4e4e4e;
+  background-color: transparent;
+  border: none;
+  font-size: 18px;
+}
+
+.input-container input:focus {
+  border: none;
+  outline: none;
+}
+
+.input-container input::-webkit-input-placeholder {
+  color: #eaeaea;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.info-ctas-container {
+  display: flex;
+  flex-direction: row;
+  padding: 10px 20px;
+  position: relative;
+}
+p.info {
+  padding: 5px 0px;
+  font-size: 14px;
+  color: #ababab;
+}
+
+button {
+  cursor: pointer;
+  font-size: 14px;
+  color: #ababab;
+  margin-right: 10px;
+  padding: 5px 10px;
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: 3px;
+}
+
+button.focus {
+  border-color: #ecd8d8;
+}
+
+.log-out-btn {
+  position: absolute;
+  bottom: 25px;
+  right: 25px;
+}
+
+@media (min-width: 992px) {
+  .log-out-btn {
+    top: 25px;
+  }
+
+  .info-ctas-container {
+    display: flex;
+    flex-direction: row;
+    padding: 10px 20px;
+    position: relative;
+  }
+
+  .info-ctas-container button {
+    margin-right: 20px;
+  }
+
+  p.info {
+    position: absolute;
+    margin-right: 100px;
+  }
+}
